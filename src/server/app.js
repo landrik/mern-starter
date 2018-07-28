@@ -11,5 +11,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3000, () => {
-   console.log('MERN Boilerplate listening on port 3000 and looking in folder ${publicPath}');
+   console.log(`MERN Boilerplate listening on port 3000 and looking in folder ${publicPath}`);
 });
