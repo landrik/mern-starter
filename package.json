@@ -1,51 +1,43 @@
 {
-  "name": "mern-starter",
+  "name": "gofit",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/server/app.js",
-    "prestart": "webpack --mode development",
-    "test": "jest --config=jest.json",
-    "lint": "eslint --config .eslintrc.json --fix ./src/client",
-    "precommit": "npm run lint && npm run test"
+    "start": "nodemon --exec babel-node src/server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "Express",
+    "RestAPI",
+    "MongoDB",
+    "Mongoose"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/landrik/mern-starter.git"
+    "url": "git+https://github.com/landrik/gofit.git"
   },
-  "author": "Landry Karege",
+  "author": "landrik",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/landrik/mern-starter/issues"
-  },
-  "homepage": "https://github.com/landrik/mern-starter#readme",
-  "dependencies": {
-    "express": "^4.16.3",
-    "webpack": "^4.16.2",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.0",
-    "babel-loader": "^7.1.5",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "css-loader": "^1.0.0",
-    "dotenv-webpack": "^1.5.7",
-    "eslint": "^5.2.0",
-    "eslint-plugin-react": "^7.10.0",
-    "husky": "^0.14.3",
-    "jest": "^23.4.1",
-    "node-sass": "^4.9.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-test-renderer": "^16.4.1",
-    "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0"
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "crypto": "^1.0.1",
+    "mongoose-unique-validator": "^2.0.3",
+    "nodemon": "^2.0.3",
+    "uuid": "^8.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.3",
+    "express-validator": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.13",
+    "morgan": "^1.10.0"
   }
 }
