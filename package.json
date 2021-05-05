@@ -1,11 +1,14 @@
 {
-  "name": "gofit",
+  "name": "mern-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client-install": "npm install --prefix client",
+    "start": "nodemon --exec babel-node server.js",
+    "server": "nodemon --exec babel-node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
     "Express",
@@ -15,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/landrik/gofit.git"
+    "url": "git+https://github.com/landrik/mern-starter.git"
   },
   "author": "landrik",
   "license": "ISC",
@@ -30,6 +33,7 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "concurrently": "^6.0.2",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

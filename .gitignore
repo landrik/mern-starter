@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 node_modules
 db
 .env
-=======
-node_modules/
->>>>>>> 3a956fe76b81ec0de6fce2fa9aa66bd36b56b9b6
+.local.env
+todelete.src
 package-lock.json
