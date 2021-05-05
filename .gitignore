@@ -4,3 +4,7 @@ db
 .local.env
 todelete.src
 package-lock.json
+
+client/package-lock.json
+client/node_modules
+client/gitignore
