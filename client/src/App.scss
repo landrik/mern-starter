@@ -1,7 +1,6 @@
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
 
-
-body{
-  text-align: center;
-}
+@import './assets/vendor/nucleo/css/nucleo.css';
+//@import './assets/scss/react/react-differences.scss';
+@import './assets/scss/argon-design-system-react.scss';
