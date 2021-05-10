@@ -5,57 +5,89 @@ const { v1: uuidv1 } = require('uuid');
 const schema = mongoose.Schema;
 
 
-const UserSchema = new schema({
-  firstname: {
-    type:String,
-    trim: true,
-    required: true,
-    maxlength: 100
-  },
-  lastname: {
-    type:String,
-    trim: true,
-    required: true,
-    maxlength: 100
-  },
-  username: {
-    type:String,
-    trim: true,
-    required: true,
-    maxlength: 32
-  },
-  email: {
-    type:String,
-    unique:true,
-    trim: true,
-    required: true,
-    maxlength: 32
-  },
-  hashed_password: {
-    type:String,
-    required: true,
-  },
-  phoneNumber: {
-    type: String
-  },
-  country: {
-    type: String
-  },
-  role:{
-    type: Number,
-    default: 0
-  },
-  about:{
-    type:String,
-  },
-  photo:{},
-  salt:String,
-  history:{
-    type: Array,
-    default: []
-  }
-},
-{ timestamps: true}
+const UserSchema = new schema(
+    {
+      username: {
+        type:String,
+        trim: true,
+        required: true,
+        maxlength: 32
+      },
+      email: {
+        type:String,
+        unique:true,
+        trim: true,
+        required: true,
+        maxlength: 32
+      },
+      hashed_password: {
+        type:String,
+        required: true,
+      },
+      about:{
+        type:String,
+      },
+      salt:String,
+      role:{
+        type: Number,
+        default: 0
+      },
+      history:{
+        type: Array,
+        default: []
+      }
+    },
+  // {
+  //   firstname: {
+  //     type:String,
+  //     trim: true,
+  //     required: true,
+  //     maxlength: 100
+  //   },
+  //   lastname: {
+  //     type:String,
+  //     trim: true,
+  //     required: true,
+  //     maxlength: 100
+  //   },
+  //   username: {
+  //     type:String,
+  //     trim: true,
+  //     required: true,
+  //     maxlength: 32
+  //   },
+  //   email: {
+  //     type:String,
+  //     unique:true,
+  //     trim: true,
+  //     required: true,
+  //     maxlength: 32
+  //   },
+  //   hashed_password: {
+  //     type:String,
+  //     required: true,
+  //   },
+  //   phoneNumber: {
+  //     type: String
+  //   },
+  //   country: {
+  //     type: String
+  //   },
+  //   role:{
+  //     type: Number,
+  //     default: 0
+  //   },
+  //   about:{
+  //     type:String,
+  //   },
+  //   photo:{},
+  //   salt:String,
+  //   history:{
+  //     type: Array,
+  //     default: []
+  //   }
+  // },
+  { timestamps: true}
 );
 
 
@@ -71,20 +103,20 @@ UserSchema.virtual('password')
   })
 
 // Virtual for user's full name
-UserSchema.virtual('fullname')
-  .get(function () {
-  // To avoid errors in cases where an author does not have either a family name or first name
-  // We want to make sure we handle the exception by returning an empty string for that case
-  var fullname = '';
-  if (this.firstname && this.lastname) {
-    fullname = this.firstname + ' ' + this.lastname
-  }
-  if (!this.firstname || !this.lastname) {
-    fullname = '';
-  }
+// UserSchema.virtual('fullname')
+//   .get(function () {
+//   // To avoid errors in cases where an author does not have either a family name or first name
+//   // We want to make sure we handle the exception by returning an empty string for that case
+//   var fullname = '';
+//   if (this.firstname && this.lastname) {
+//     fullname = this.firstname + ' ' + this.lastname
+//   }
+//   if (!this.firstname || !this.lastname) {
+//     fullname = '';
+//   }
 
-  return fullname;
-});  
+//   return fullname;
+// });  
 
 UserSchema.methods = {
   authenticate: function(plainText){

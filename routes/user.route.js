@@ -6,14 +6,14 @@ const router = Router();
 //User Schema
 //const UserSchema = require('../models/user.model');
 const users = require('../controllers/user.controller');
-const { userSignupValidator } = require('../validator')
+//const { userSignupValidator } = require('../validator')
 
 router.get('/', users.sayHi)
 
-//signup user
-router.post('/signup', userSignupValidator, users.signup);
-//signin user
-router.post('/signin', users.signin);
+// //signup user
+// router.post('/signup', userSignupValidator, users.signup);
+// //signin user
+// router.post('/signin', users.signin);
 
 
 //get all users
