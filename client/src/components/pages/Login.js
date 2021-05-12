@@ -2,13 +2,10 @@ import React, { useState } from 'react'
 import { Link, Redirect } from "react-router-dom";
 import { signin, authenticate, isAuthenticated } from "../auth";
 import {
-  Container,
   FormGroup,
   Form,
   Input,
   Button,
-  Row,
-  Col,
   Alert
 } from "reactstrap";
 
@@ -61,48 +58,46 @@ const Login = () => {
   }
 
   return (
-    <Container>
-      <Row className='align-items-center' style={{height:'100vh'}}>
-        <Col sm={{ size: 4, offset: 4 }} className="pt-5">
-          <p className="lead"><Link to='/'>	&larr; back to home</Link></p>
-          <h2 className="heading-title mb-3"><b>Login</b> below</h2>
-          <p>Don't have an account? <Link to='/register'>Register</Link></p>
-          {error && <Alert color='danger'>{error}</Alert>}
-          {loading && <Alert color='success'>loading...</Alert>}
-          <Form>
-              <FormGroup>
-                <Input
-                  className="form-control-alternative"
-                  id="email"
-                  placeholder="name@example.com"
-                  type="email"
-                  name="email"
-                  value={email}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  className="form-control-alternative"
-                  id="password"
-                  placeholder="password"
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <Button 
-                color="primary" 
-                type="button" 
-                size="lg"
-                onClick={handleSubmit}
-              > Login </Button>
-          </Form>
-          { redirectUser() }
-          </Col>
-      </Row>
-    </Container>
+    <React.Fragment>
+      <>
+      <p className="lead"><Link to='/'>	&larr; back to home</Link></p>
+      <h2 className="heading-title mb-3"><b>Login</b> below</h2>
+      <p>Don't have an account? <Link to='/register'>Register</Link></p>
+      {error && <Alert color='danger'>{error}</Alert>}
+      {loading && <Alert color='success'>loading...</Alert>}
+      <Form>
+          <FormGroup>
+            <Input
+              className="form-control-alternative"
+              id="email"
+              placeholder="name@example.com"
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Input
+              className="form-control-alternative"
+              id="password"
+              placeholder="password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleInputChange}
+            />
+          </FormGroup>
+          <Button 
+            color="primary" 
+            type="button" 
+            size="lg"
+            onClick={handleSubmit}
+          > Login </Button>
+      </Form>
+      { redirectUser() }
+      </>
+    </React.Fragment>
   )
 }
 

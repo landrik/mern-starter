@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { signup } from "../auth";
 
 import {
   Alert,
-  Container,
   FormGroup,
   Form,
   Input,
   Button,
-  Row,
-  Col
+  Card,
+  CardHeader,
+  CardBody
 } from "reactstrap";
 
 
@@ -86,71 +86,71 @@ const Register = () => {
   }
 
   return (
-    <Container>
-      <Row>
-        <Col sm={{ size: 4, offset: 4 }} className="pt-5">
+    <React.Fragment>
           <p className="lead"><Link to='/'>	&larr; back to home</Link></p>
           <h2 className="heading-title mb-3"><b>Register</b> below</h2>
           <p>Already have an account? <Link to='/login'>Login</Link></p>
           { error && <Alert color='danger'>{error}</Alert>}
           { success && <Alert color='success'>A new account has been created, <Link to='/login' className='alert-link'>login</Link></Alert>}
           <Form onSubmit={handleSubmit}>
-              <FormGroup>
-                <Input
-                  className="form-control-alternative"
-                  id="username"
-                  placeholder="username"
-                  type="text"
-                  name="username"
-                  value={username}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  className="form-control-alternative"
-                  id="email"
-                  placeholder="name@example.com"
-                  type="email"
-                  name="email"
-                  value={inputData.email}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  className="form-control-alternative"
-                  id="password"
-                  placeholder="Password"
-                  type="password"
-                  name="password"
-                  value={inputData.password}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  className="form-control-alternative"
-                  id="confirmpassword"
-                  placeholder="Confirm Password"
-                  type="password"
-                  name="confirmpassword"
-                  value={confirmpassword}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <Button 
-                color="primary" 
-                type="button" 
-                size="lg"
-                onClick={handleSubmit}
-              > Sign Up
-                {/*loading ? ('Loading...'):('Sign Up')*/}
-              </Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+                <FormGroup>
+                  <Input
+                    className="form-control-alternative"
+                    id="username"
+                    placeholder="username"
+                    type="text"
+                    name="username"
+                    value={username}
+                    onChange={handleInputChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Input
+                    className="form-control-alternative"
+                    id="email"
+                    placeholder="name@example.com"
+                    type="email"
+                    name="email"
+                    value={inputData.email}
+                    onChange={handleInputChange}
+                  />
+                  {error.email && (
+                  <div className="text-danger">Email format is invalid</div>
+                )}
+                </FormGroup>
+                <FormGroup>
+                  <Input
+                    className="form-control-alternative"
+                    id="password"
+                    placeholder="Password"
+                    type="password"
+                    name="password"
+                    value={inputData.password}
+                    onChange={handleInputChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Input
+                    className="form-control-alternative"
+                    id="confirmpassword"
+                    placeholder="Confirm Password"
+                    type="password"
+                    name="confirmpassword"
+                    value={confirmpassword}
+                    onChange={handleInputChange}
+                  />
+                </FormGroup>
+                <Button 
+                  color="primary" 
+                  type="button" 
+                  size="lg"
+                  onClick={handleSubmit}
+                > Sign Up
+                  {/*loading ? ('Loading...'):('Sign Up')*/}
+                </Button>
+            </Form>
+     
+    </React.Fragment>
   )
 }
 

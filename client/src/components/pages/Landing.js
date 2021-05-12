@@ -8,6 +8,8 @@ import {
 } from "reactstrap";
 
 
+import rocket from '../../assets/img/lk/rocket.svg'
+
 function Landing() {
   return (
     <main>
@@ -27,7 +29,7 @@ function Landing() {
           <Container className="py-lg-md d-flex align-items-center">
             <div className="col px-0">
               <Row className="align-items-center">
-                <Col lg="6">
+                <Col md lg="7">
                   <h1 className="text-white">
                   <b>Build</b> a login/auth app with the <span style={{ fontFamily: "monospace" }}>MERN</span> stack from scratch
                   </h1>
@@ -51,6 +53,7 @@ function Landing() {
                     </Link>
                   </div>
                 </Col>
+                <Col md lg="5"><img src={rocket} className="img-fluid mover" /></Col>
               </Row>
             </div>
           </Container>

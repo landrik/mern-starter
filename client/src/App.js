@@ -9,6 +9,7 @@ import ProfilePage from './components/pages/ProfilePage'
 import Dashboard from './components/dashboard/Dashboard';
 
 import PrivateRoute from './components/layout/PrivateRoute';
+import AuthLayoutRoute from './components/layout/AuthRoute';
 
 import './App.scss';
 
@@ -17,8 +18,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
+        <AuthLayoutRoute path="/login" component={Login} />
+        <AuthLayoutRoute path="/register" component={Register} />
         <Route path="/profile" component={ProfilePage} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
       </Switch>
