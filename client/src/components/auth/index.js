@@ -2,7 +2,7 @@
 import { API } from '../../config';
 
 export const signup = user => {
-  //console.log(username, email, password)
+  console.log(user)
   return fetch(`${API}/signup`, {
     method: 'POST',
     headers: {

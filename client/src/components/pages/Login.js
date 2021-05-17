@@ -6,7 +6,8 @@ import {
   Form,
   Input,
   Button,
-  Alert
+  Alert,
+  Label
 } from "reactstrap";
 
 const Login = () => {
@@ -67,6 +68,9 @@ const Login = () => {
       {loading && <Alert color='success'>loading...</Alert>}
       <Form>
           <FormGroup>
+          <Label 
+            htmlFor="email" 
+            className="form-control-label">Email</Label>
             <Input
               className="form-control-alternative"
               id="email"
@@ -78,6 +82,9 @@ const Login = () => {
             />
           </FormGroup>
           <FormGroup>
+          <Label 
+            htmlFor="password" 
+            className="form-control-label">Password</Label>
             <Input
               className="form-control-alternative"
               id="password"
@@ -88,7 +95,8 @@ const Login = () => {
               onChange={handleInputChange}
             />
           </FormGroup>
-          <Button 
+          <Button
+            className="mt-3" 
             color="primary" 
             type="button" 
             size="lg"
